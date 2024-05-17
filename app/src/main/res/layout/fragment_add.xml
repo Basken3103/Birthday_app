@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".AddFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ADD YOUR FRIEND"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/editText_name"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Your name"
+        android:inputType="textPersonName" />
+
+
+    <Button
+        android:id="@+id/button_Name"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:text="Name" />
+
+
+    <EditText
+        android:id="@+id/editText_birthday"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Your birthdate"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/button_birthdate"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:text="Birthdate" />
+
+
+    <EditText
+        android:id="@+id/editText_birthmonth"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint=" Your birthmonth"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/button_birthmonth"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="Birthmonth" />
+
+
+    <EditText
+        android:id="@+id/editText_birthyear"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint=" Your birthyear"
+        android:inputType="number" />
+
+    
+    <Button
+        android:id="@+id/button_birthyear"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:text="Birthyear" />
+</LinearLayout>

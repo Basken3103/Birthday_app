@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "967701953777",
+    "project_id": "johnsie-swayze",
+    "storage_bucket": "johnsie-swayze.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:967701953777:android:0386b8218c4ed87d183d50",
+        "android_client_info": {
+          "package_name": "com.example.birthdayapp2_0"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDB9hizHBrXMKq-EiorCq-km0aWsWTkNs8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:967701953777:android:507e15d0245a758d183d50",
+        "android_client_info": {
+          "package_name": "com.example.firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDB9hizHBrXMKq-EiorCq-km0aWsWTkNs8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

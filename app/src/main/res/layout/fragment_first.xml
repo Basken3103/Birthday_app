@@ -7,19 +7,38 @@
     android:orientation="vertical"
     tools:context=".FirstFragment">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="339dp">
+        android:layout_height="100dp"
+        android:background="#4169e1"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:title="Birthday app 2_0" />
 
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar3"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/spinner_sorting"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
             android:layout_weight="2"
-            android:background="#4169e1"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:title="Birthday app 2_0" />
+            android:entries="@array/sortings" />
+
+        <Button
+            android:id="@+id/button_sort"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/cardview_dark_background"
+            android:padding="15dp"
+            android:text="@string/sort"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+
 
         <Button
             android:id="@+id/button_logout"
@@ -30,22 +49,21 @@
             android:text="@string/logout"
             android:textColor="@color/white"
             android:textSize="16sp" />
+    </LinearLayout>
 
-        <Spinner
-            android:id="@+id/spinner_sorting"
-            android:layout_width="150dp"
-            android:layout_height="48dp"
-            android:entries="@array/sortings" />
+    
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/edittext_filter_name"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:hint="Filter by Name"
-            android:textColor="@color/white"
-            android:textColorHint="@color/black" />
+          <androidx.appcompat.widget.SearchView
+              android:id="@+id/searchview_filter_name"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_margin="4dp"
+              android:layout_weight="2"
+              app:queryHint="Search by name" />
+      </LinearLayout>
 
 
         <ProgressBar
@@ -54,30 +72,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/swiperefresh"
-            android:layout_width="match_parent"
-            android:layout_height="10dp"></androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
         <ScrollView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycleView"
+                android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
         </ScrollView>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:layout_margin="16dp"
-            android:contentDescription="@string/first_fragment_label"
-            android:src="@drawable/ic_my_icon" />
-    </com.google.android.material.appbar.AppBarLayout>
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swiperefresh"
+            android:layout_width="match_parent"
+            android:layout_height="10dp">
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
     <FrameLayout
@@ -96,21 +106,21 @@
             android:id="@+id/textview_second"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="50dp"
             android:text="@string/birthday_09_05_2001" />
 
         <TextView
             android:id="@+id/textview_third"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="80dp"
             android:text="@string/name_patricia" />
 
         <TextView
             android:id="@+id/textview_fourth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="190dp"
+            android:layout_marginTop="110dp"
             android:text="@string/birthday_12_09_1996" />
 
 
@@ -118,16 +128,26 @@
             android:id="@+id/textview_fifth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="280dp"
+            android:layout_marginTop="140dp"
             android:text="@string/name_phillp" />
 
         <TextView
             android:id="@+id/textview_sixth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="320dp"
+            android:layout_marginTop="170dp"
             android:text="@string/birthday_03_17_1996"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:contentDescription="@string/first_fragment_label"
+            android:src="@drawable/ic_my_icon"/>
     </FrameLayout>
+
 </LinearLayout>
 
 

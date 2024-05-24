@@ -60,7 +60,7 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
 
     //Databinding
-    //implementation("androidx.databinding:databinding-runtime:8.4.0")
+    implementation("androidx.databinding:databinding-runtime:8.4.1")
 
     //Recyclerview
     implementation("androidx.recyclerview:recyclerview:1.3.2")

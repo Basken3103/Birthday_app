@@ -8,9 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.birthdayapp2_0.databinding.FragmentEditBinding
+import com.example.birthdayapp2_0.models.Person
 import com.example.birthdayapp2_0.models.PersonViewmodel
 import com.google.firebase.auth.FirebaseAuth
-
 
 
 
@@ -48,9 +48,6 @@ class EditFragment : Fragment() {
         binding.birthMonth.setText(person.birthMonth.toString())
         binding.birthYear.setText(person.birthYear.toString())
 
-        /*
-        binding.email.setText(person.userId.toString())
-        */
 
 
         binding.buttonDeleteFriend.setOnClickListener {
@@ -59,7 +56,7 @@ class EditFragment : Fragment() {
                 personViewModel.delete(person.id)
                 personViewModel.reload(user_id)
             }
-            findNavController().popBackStack()
+            findNavController().navigate(R.id.action_FirstFragment_to_editFragment)
         }
 
         binding.buttonPrevious.setOnClickListener {
@@ -72,30 +69,32 @@ class EditFragment : Fragment() {
             val name = binding.Name.text.toString().trim()
             if (name == null) {
                 binding.Name.error = "Name field is Empty"
+
             }
             val birthYear = binding.birthYear.text.toString().trim().toInt()
             val birthMonth = binding.birthMonth.text.toString().trim().toInt()
             val birthDate = binding.birthDate.text.toString().trim().toInt()
-
-            /*
-            val email = binding.eMail.text.toString().trim()
+            val E_mail = person.userId
 
 
             val updatePerson =
                 Person(
+                    person.id,
+                    name,
+                    person.age,
                     birthDate,
                     birthMonth,
                     birthYear,
-                    email,
+                    E_mail
+
                 )
-           */
 
-
+            personViewModel.update (updatePerson)
             val user_id = FirebaseAuth.getInstance().currentUser?.email
             if (user_id != null) {
                 personViewModel.reload(user_id)
             }
-            findNavController().popBackStack()
+            findNavController().navigate(R.id.action_FirstFragment_to_editFragment)
         }
 
     }

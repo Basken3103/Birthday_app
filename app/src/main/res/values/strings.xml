@@ -66,4 +66,18 @@
     <string name="back">BACK</string>
     <string name="update">UPDATE</string>
     <string name="delete">DELETE</string>
+    <string name="add_your_new_friend">ADD YOUR NEW FRIEND</string>
+    <string name="your_birthdate">Your birthdate</string>
+    <string name="your_birthmonth">Your birthmonth</string>
+    <string name="your_birthyear">Your birthyear</string>
+    <string name="add_your_new_friend_2">ADD YOUR NEW FRIEND</string>
+    <string name="your_name_2">Your name</string>
+    <string name="your_birthdate_2">Your birthdate</string>
+    <string name="add_your_new_friend_1">ADD YOUR NEW FRIEND</string>
+    <string name="add_my_new_friend_4">ADD MY NEW FRIEND</string>
+    <string name="your_birthdate_1">Your Birthdate</string>
+    <string name="your_birthmonth_1">Your Birthmonth</string>
+    <string name="your_birthyear_1">Your Birthyear</string>
+    <string name="sort">Sort</string>
+    <string name="e_mail">E_mail</string>
 </resources>

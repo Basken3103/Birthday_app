@@ -1,6 +1,6 @@
 package com.example.birthdayapp2_0.models
 
-import android.provider.ContactsContract.CommonDataKinds.Email
+
 import java.io.Serializable
 
 data class Person(
@@ -12,6 +12,7 @@ data class Person(
     var birthYear: Int,
     var userId: String,
 
+
   ) :
 
         Serializable {
@@ -21,9 +22,9 @@ data class Person(
         birthDate: Int,
         birthMonth: Int,
         birthYear: Int,
-        email: String,
+        E_mail: String,
     ) :
-            this(-1, name, age, birthDate, birthMonth, birthYear, email)
+            this(-1, name, age, birthDate, birthMonth, birthYear, E_mail)
 
     override fun toString(): String {
         return "$id, $name, $age, $birthDate, $birthMonth, $birthYear, $userId"

@@ -1,6 +1,6 @@
 package com.example.birthdayapp2_0.models
 
-import android.provider.ContactsContract.CommonDataKinds.Email
+
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -52,7 +52,7 @@ class PersonViewmodel : ViewModel() {
 
     fun update(person: Person) {
         repository.update(person)
-        Log.d("APPLE", "Updated person: $person")
+        Log.d("APPEL","Update person:$person")
     }
 
     fun sortByName() {

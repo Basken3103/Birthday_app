@@ -6,75 +6,103 @@
     android:orientation="vertical"
     tools:context=".AddFragment">
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
+        android:layout_marginTop="75dp"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ADD YOUR FRIEND"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/black"
+            android:gravity="center"
+            android:text="@string/add_my_new_friend_4"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="italic" />
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <EditText
+            android:id="@+id/edittext_filter_name"
+            android:layout_width="450sp"
+            android:layout_height="48dp"
+            android:layout_marginStart="30dp"
+            android:gravity="center"
+            android:textStyle="normal"
+            android:inputType="text"
+            android:hint="@string/your_name"
+            android:textColor="@color/black" />
     </LinearLayout>
 
 
-    <EditText
-        android:id="@+id/editText_name"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:hint="Your name"
-        android:inputType="textPersonName" />
+        android:layout_height="75dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+    </LinearLayout>
 
-
-    <Button
-        android:id="@+id/button_Name"
-        android:layout_width="90dp"
-        android:layout_height="wrap_content"
-        android:text="Name" />
-
-
-    <EditText
-        android:id="@+id/editText_birthday"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:hint="Your birthdate"
-        android:inputType="number" />
-
-    <Button
-        android:id="@+id/button_birthdate"
-        android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:text="Birthdate" />
+        android:gravity="center"
+        android:orientation="horizontal">
 
+        <Button
+            android:id="@+id/button_previous"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="BACK"
+            android:textColor="@color/white"
+            android:textStyle="italic"/>
 
-    <EditText
-        android:id="@+id/editText_birthmonth"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:hint=" Your birthmonth"
-        android:inputType="number" />
+        <Button
+            android:id="@+id/button_Addnewfriend"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:text="ADD"
+            android:textStyle="italic"
+            android:textColor="@color/white" />
+     </LinearLayout>
 
-    <Button
-        android:id="@+id/button_birthmonth"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:text="Birthmonth" />
-
-
-    <EditText
-        android:id="@+id/editText_birthyear"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:hint=" Your birthyear"
-        android:inputType="number" />
-
-    
-    <Button
-        android:id="@+id/button_birthyear"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:text="Birthyear" />
 </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

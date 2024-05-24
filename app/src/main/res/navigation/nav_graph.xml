@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_editFragment"
             app:destination="@id/editFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -31,7 +34,11 @@
     <fragment
         android:id="@+id/addFragment"
         android:name="com.example.birthdayapp2_0.AddFragment"
-        android:label="AddFragment" />
+        android:label="AddFragment" >
+        <action
+            android:id="@+id/action_addFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
     <fragment
         android:id="@+id/editFragment"
         android:name="com.example.birthdayapp2_0.EditFragment"
@@ -40,6 +47,9 @@
         <argument
             android:name="position"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_editFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
     </fragment>
 
 </navigation>

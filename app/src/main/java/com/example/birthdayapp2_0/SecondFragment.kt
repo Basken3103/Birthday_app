@@ -78,8 +78,7 @@ class SecondFragment : Fragment() {
                             val savedEmail = userEmail
                             PersonViewmodel.getPersonById(savedEmail)
                             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-                            //extendSession()
-                            //sessionTimeoutInSeconds
+
                         }
                         else{
                             Log.e("APPLE","User Email is empty or null")

@@ -19,15 +19,16 @@ class MyAdapter(
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): MyViewHolder {
+
         val view = LayoutInflater.from(viewGroup.context)
 
-            .inflate(R.layout.list_item, viewGroup, false)
+            .inflate(R.layout.list_item_card, viewGroup, false)
         return MyViewHolder(view, onItemClicked)
     }
 
-    override fun onBindViewHolder(ViewHolder: MyViewHolder, position: Int) {
+    override fun onBindViewHolder(viewHolder: MyViewHolder, position: Int) {
 
-        ViewHolder.textView.text = items[position].toString()
+        viewHolder.textView.text = items[position].toString()
     }
 
     class MyViewHolder(itemView: View, private val onItemClicked: (position: Int) -> Unit) :

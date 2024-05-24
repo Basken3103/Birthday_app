@@ -1,6 +1,7 @@
 package com.example.birthdayapp2_0
 
-
+import android.annotation.SuppressLint
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,14 +12,35 @@ import androidx.navigation.fragment.findNavController
 import com.example.birthdayapp2_0.databinding.FragmentAddBinding
 import com.example.birthdayapp2_0.models.Person
 import com.example.birthdayapp2_0.models.PersonViewmodel
-
+import com.google.firebase.auth.FirebaseAuth
+import java.util.Calendar
 
 
 class AddFragment : Fragment() {
     private var _binding: FragmentAddBinding? = null
     private val binding get() = _binding!!
-
     private val PersonViewmodel: PersonViewmodel by activityViewModels()
+
+    private var selectedDate = Calendar.getInstance()
+    val auth = FirebaseAuth.getInstance()
+    private val dateSetListener =
+        DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+
+            selectedDate = Calendar.getInstance().apply {
+                set(Calendar.YEAR, year)
+                set(Calendar.MONTH, year)
+                set(Calendar.DAY_OF_MONTH, dayOfMonth)
+            }
+        }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+
+        }
+    }
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -27,42 +49,53 @@ class AddFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.buttonName.setOnClickListener {
-            val name = binding.editTextName.text.toString().trim()
-            if (name.isEmpty()) {
-                binding.editTextName.error = "Name required"
-                return@setOnClickListener
+        val nameEditText = binding.edittextFilterName
+        binding.buttonAddnewfriend.setOnClickListener {
+            val calendar = Calendar.getInstance()
+            val currentYear = calendar[Calendar.YEAR]
+            val currentMonth = calendar[Calendar.MONTH]
+            val currentDayOfMonth = calendar[Calendar.DAY_OF_MONTH]
+
+            val datePicker = DatePickerDialog(
+                requireContext(),
+                dateSetListener,
+                currentYear,
+                currentMonth,
+                currentDayOfMonth
+            )
+            datePicker.show()
+
+            val userId = auth.currentUser
+            binding.buttonAddnewfriend.setOnClickListener {
+                val name = nameEditText.text.toString().trim()
+                val today = Calendar.getInstance()
+                val age = today.get(Calendar.YEAR)
+                if (today.get(Calendar.DAY_OF_YEAR) < (selectedDate?.get(Calendar.DAY_OF_YEAR)
+                        ?: 0)
+                ) 1 else 0
+
+
+                val birthdate = selectedDate?.get(Calendar.DAY_OF_MONTH) ?: 0
+                val birthmonth = selectedDate?.get(Calendar.MONTH) ?: 0
+                val birthyear = selectedDate.get(Calendar.YEAR)
+                val userEmail = PersonViewmodel.getUserEmail()
+                val newPerson = Person(name, age, birthdate, birthmonth, birthyear, userEmail)
+                PersonViewmodel.add(newPerson)
+                findNavController().navigate(R.id.action_addFragment_to_FirstFragment)
             }
-
-            val birthday = binding.editTextBirthday.text.toString().trim()
-            if (birthday.isEmpty()) {
-                binding.editTextBirthmonth.error = "Birthday required"
-                return@setOnClickListener
+            binding.buttonPrevious.setOnClickListener {
+                findNavController().navigate(R.id.action_addFragment_to_FirstFragment)
             }
-
-            val birthmonth = binding.editTextBirthmonth.text.toString().trim()
-            if (birthmonth.isEmpty()) {
-                binding.editTextBirthmonth.error = "Birthmonth required"
-                return@setOnClickListener
-            }
-
-            val birthyear = binding.editTextBirthyear.text.toString().trim()
-            if (birthyear.isEmpty()) {
-                binding.editTextBirthyear.error = "Birthyear required"
-                return@setOnClickListener
-            }
-
-
-            val age = 27
-            val email = "123@hotmail.com"
-            val person = Person(name, age, birthday.toInt(), birthmonth.toInt(), birthyear.toInt(), email)
-            PersonViewmodel.add(person)
-            findNavController().popBackStack()
-
         }
     }
+
+        override fun onDestroyView() {
+            super.onDestroyView()
+            _binding = null
+        }
 }
 
 

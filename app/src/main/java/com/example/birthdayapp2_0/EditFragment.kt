@@ -14,7 +14,6 @@ import com.google.firebase.auth.FirebaseAuth
 
 
 
-
 class EditFragment : Fragment() {
     private var _binding: FragmentEditBinding? = null
     private val binding get() = _binding!!
@@ -47,8 +46,9 @@ class EditFragment : Fragment() {
         binding.birthDate.setText(person.birthDate.toString())
         binding.birthMonth.setText(person.birthMonth.toString())
         binding.birthYear.setText(person.birthYear.toString())
-
-
+        /*
+        binding.eMail.setText(person.userId.toString())
+        */
 
         binding.buttonDeleteFriend.setOnClickListener {
             val user_id = FirebaseAuth.getInstance().currentUser?.email
@@ -56,11 +56,11 @@ class EditFragment : Fragment() {
                 personViewModel.delete(person.id)
                 personViewModel.reload(user_id)
             }
-            findNavController().navigate(R.id.action_FirstFragment_to_editFragment)
+            findNavController().navigate(R.id.action_editFragment_to_FirstFragment)
         }
 
         binding.buttonPrevious.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_editFragment)
+            findNavController().navigate(R.id.action_editFragment_to_FirstFragment)
         }
 
 
@@ -75,8 +75,6 @@ class EditFragment : Fragment() {
             val birthMonth = binding.birthMonth.text.toString().trim().toInt()
             val birthDate = binding.birthDate.text.toString().trim().toInt()
             val E_mail = person.userId
-
-
             val updatePerson =
                 Person(
                     person.id,
@@ -94,7 +92,7 @@ class EditFragment : Fragment() {
             if (user_id != null) {
                 personViewModel.reload(user_id)
             }
-            findNavController().navigate(R.id.action_FirstFragment_to_editFragment)
+            findNavController().navigate(R.id.action_editFragment_to_FirstFragment)
         }
 
     }

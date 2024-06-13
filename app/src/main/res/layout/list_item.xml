@@ -7,39 +7,53 @@
     tools:context=".FirstFragment">
 
 
-    <!-- Beskrivelse af et element i listen -->
+    <!-- Listen over mine venner -->
+
+
+
+    <TextView
+        android:id="@+id/textview_list_item1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/name_lasse" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/certain_friend_birthday_details"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:layout_marginTop="50dp"
+        android:text="@string/birthday_09_05_2001" />
+
 
     <TextView
-        android:id="@+id/textview_list_item"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textStyle="italic" />
-
-    <TextView
-        android:id="@+id/textview_first"
+        android:id="@+id/textview_list_item2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Name: Lasse" />
+        android:layout_marginTop="80dp"
+        android:text="@string/name_patricia" />
 
     <TextView
-        android:id="@+id/textview_second"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:text=" Birthday: 09/05 - 2001" />
+        android:layout_marginTop="50dp"
+        android:text="@string/birthday_12_09_1996" />
 
-    <EditText
-        android:id="@+id/editText_word"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginTop="40dp"
-        android:inputType="text"
-        android:text="Age 22" />
+    <TextView
+        android:id="@+id/textview_list_item3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="@string/name_phillp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/birthday_03_17_1996" />
+
+
+
+
+
+
 </LinearLayout>

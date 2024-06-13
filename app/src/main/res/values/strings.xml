@@ -80,4 +80,7 @@
     <string name="your_birthyear_1">Your Birthyear</string>
     <string name="sort">Sort</string>
     <string name="e_mail">E_mail</string>
+    <string name="all_your_friends">All your Friends</string>
+    <string name="fab_content_description" />
+    <string name="lasse">Lasse</string>
 </resources>

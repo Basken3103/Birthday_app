@@ -1,6 +1,6 @@
 package com.example.birthdayapp2_0
 
-import android.annotation.SuppressLint
+
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -49,11 +49,11 @@ class AddFragment : Fragment() {
         return binding.root
     }
 
-    @SuppressLint("SuspiciousIndentation")
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val nameEditText = binding.edittextFilterName
-        binding.buttonAddnewfriend.setOnClickListener {
+        val nameEditText = binding.Name
+        binding.buttonBirthdate.setOnClickListener {
             val calendar = Calendar.getInstance()
             val currentYear = calendar[Calendar.YEAR]
             val currentMonth = calendar[Calendar.MONTH]
@@ -69,13 +69,14 @@ class AddFragment : Fragment() {
             datePicker.show()
 
             val userId = auth.currentUser
-            binding.buttonAddnewfriend.setOnClickListener {
+            binding.buttonAddNewFriend.setOnClickListener {
                 val name = nameEditText.text.toString().trim()
                 val today = Calendar.getInstance()
                 val age = today.get(Calendar.YEAR)
                 if (today.get(Calendar.DAY_OF_YEAR) < (selectedDate?.get(Calendar.DAY_OF_YEAR)
                         ?: 0)
                 ) 1 else 0
+
 
 
                 val birthdate = selectedDate?.get(Calendar.DAY_OF_MONTH) ?: 0

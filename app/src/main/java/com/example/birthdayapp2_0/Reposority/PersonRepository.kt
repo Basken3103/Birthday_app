@@ -1,9 +1,9 @@
 package com.example.birthdayapp2_0.Repository
 
-import com.example.birthdayapp2_0.models.Person
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.birthdayapp2_0.Reposority.PersonService
+import com.example.birthdayapp2_0.models.Person
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -41,9 +41,7 @@ class PersonsRepository {
                     Log.d("APPLE", message)
                 }
             }
-            fun initRepository(user_id: String){
-                getPersonByUserId(user_id)
-            }
+
 
             override fun onFailure(call: Call<List<Person>>, t: Throwable) {
                 errorMessageLiveData.postValue(t.message)
@@ -51,6 +49,9 @@ class PersonsRepository {
             }
         })
 
+    }
+    fun initRepository(user_id: String) {
+        getPersonByUserId(user_id)
     }
 
 

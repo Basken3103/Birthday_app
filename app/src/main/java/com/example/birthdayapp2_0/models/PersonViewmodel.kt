@@ -18,15 +18,13 @@ class PersonViewmodel : ViewModel() {
 
     init {
         val email = FirebaseAuth.getInstance().currentUser?.email
-        email?.let {
-            reload(it)
-        }
+        email?.let { reload(it) }
 
     }
 
     fun reload(user_id: String) {
         Log.d("APPLE", "Reloading Data for user:$user_id")
-        repository.getPersonByUserId(user_id)
+        repository.initRepository(user_id)
     }
 
 
@@ -81,6 +79,7 @@ class PersonViewmodel : ViewModel() {
     fun setUserEmail(email: String) {
         userEmail = email
     }
+
 
 
 

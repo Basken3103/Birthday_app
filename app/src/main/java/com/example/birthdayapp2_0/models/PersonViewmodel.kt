@@ -1,11 +1,10 @@
 package com.example.birthdayapp2_0.models
 
 
-import android.util.Log
+
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.example.birthdayapp2_0.Repository.PersonsRepository
-import com.google.firebase.auth.FirebaseAuth
+import com.example.birthdayapp2_0.Reposority.PersonsRepository
 
 
 
@@ -17,14 +16,11 @@ class PersonViewmodel : ViewModel() {
 
 
     init {
-        val email = FirebaseAuth.getInstance().currentUser?.email
-        email?.let { reload(it) }
-
+       reload(user_id = String())
     }
 
     fun reload(user_id: String) {
-        Log.d("APPLE", "Reloading Data for user:$user_id")
-        repository.initRepository(user_id)
+        repository.getPersonByUserId(user_id)
     }
 
 
@@ -33,7 +29,7 @@ class PersonViewmodel : ViewModel() {
         return personsLiveData.value?.get(index)
     }
 
-    fun getPersonById(user_id: String) {
+    fun getPersonByUserId(user_id: String) {
         repository.getPersonByUserId(user_id)
     }
 
@@ -45,12 +41,10 @@ class PersonViewmodel : ViewModel() {
 
     fun delete(id: Int) {
         repository.delete(id)
-        Log.d("APPLE", "Deleted person with id: $id")
     }
 
     fun update(person: Person) {
         repository.update(person)
-        Log.d("APPEL","Update person:$person")
     }
 
     fun sortByName() {
@@ -72,6 +66,7 @@ class PersonViewmodel : ViewModel() {
     }
 
     private var userEmail: String = ""
+
     fun getUserEmail(): String {
         return userEmail
     }

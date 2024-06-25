@@ -8,6 +8,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.birthdayapp2_0.databinding.ActivityMainBinding
 
 
+
+
 class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
@@ -23,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
-
 
 
     }

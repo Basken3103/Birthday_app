@@ -38,6 +38,7 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
+
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -47,8 +48,6 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         PersonViewmodel.personsLiveData.observe(viewLifecycleOwner) { persons ->
-
-
             binding.progressbar.visibility = View.GONE
             binding.recyclerView.visibility = if (persons == null) View.GONE else View.VISIBLE
             binding.swiperefresh.isClickable = true
@@ -58,6 +57,7 @@ class FirstFragment : Fragment() {
                         FirstFragmentDirections.actionFirstFragmentToEditFragment(position)
                     findNavController().navigate(action /*R.id.action_FirstFragment_to_EditFragment*/)
                 }
+                 //binding.recyclerView.layoutManager = LinearLayoutManager(activity)
                 var colums = 2
                 val currentOrientation = this.resources.configuration.orientation
                 if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) {
@@ -72,10 +72,10 @@ class FirstFragment : Fragment() {
             }
         }
 
-        val email = auth.currentUser?.email
-        if (email != null) {
-            PersonViewmodel.reload(email)
+        PersonViewmodel.errorMessageLiveData.observe(viewLifecycleOwner) { errorMessage ->
+            binding.textviewMessage.text = errorMessage
         }
+
 
         binding.swiperefresh.setOnRefreshListener {
             val user_id = FirebaseAuth.getInstance().currentUser?.email
@@ -89,6 +89,8 @@ class FirstFragment : Fragment() {
 
 
 
+
+
         binding.buttonSort.setOnClickListener {
             when (binding.spinnerSorting.selectedItemPosition) {
                 0 -> PersonViewmodel.sortByName()
@@ -96,7 +98,6 @@ class FirstFragment : Fragment() {
                 2 -> PersonViewmodel.sortByBirthday()
             }
         }
-
 
 
         binding.buttonFilterName.setOnClickListener {
@@ -121,9 +122,6 @@ class FirstFragment : Fragment() {
             auth.signOut()
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
-
-
-
 
 
     }

@@ -1,8 +1,7 @@
-package com.example.birthdayapp2_0.Repository
+package com.example.birthdayapp2_0.Reposority
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.example.birthdayapp2_0.Reposority.PersonService
 import com.example.birthdayapp2_0.models.Person
 import retrofit2.Call
 import retrofit2.Callback
@@ -25,6 +24,7 @@ class PersonsRepository {
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
         personsService = build.create(PersonService::class.java)
+
     }
 
     fun getPersonByUserId(user_id: String) {
@@ -49,14 +49,17 @@ class PersonsRepository {
             }
         })
 
-    }
-    fun initRepository(user_id: String) {
-        getPersonByUserId(user_id)
+        fun initRepository(user_id: String){
+            getPersonByUserId(user_id)
+        }
+
+
+
     }
 
 
     fun add(person: Person) {
-        personsService.savePersons(person).enqueue(object : Callback<Person> {
+        personsService.savePerson(person).enqueue(object : Callback<Person> {
             override fun onResponse(call: Call<Person>, response: Response<Person>) {
                 if(response.isSuccessful) {
                     Log.d("APPLE", "Added:" + response.body())
@@ -100,6 +103,7 @@ class PersonsRepository {
             }
         })
     }
+
 
     fun update(person: Person) {
         personsService.updatePerson(person.id, person).enqueue(object : Callback<Person> {

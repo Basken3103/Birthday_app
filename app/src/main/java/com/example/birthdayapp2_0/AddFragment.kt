@@ -16,15 +16,19 @@ import com.google.firebase.auth.FirebaseAuth
 import java.util.Calendar
 
 
+
+
+
+
+
 class AddFragment : Fragment() {
     private var _binding: FragmentAddBinding? = null
     private val binding get() = _binding!!
     private val PersonViewmodel: PersonViewmodel by activityViewModels()
-
     private var selectedDate = Calendar.getInstance()
     val auth = FirebaseAuth.getInstance()
     private val dateSetListener =
-        DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+        DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
 
             selectedDate = Calendar.getInstance().apply {
                 set(Calendar.YEAR, year)
@@ -44,7 +48,7 @@ class AddFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         _binding = FragmentAddBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -68,7 +72,14 @@ class AddFragment : Fragment() {
             )
             datePicker.show()
 
-            val userId = auth.currentUser
+
+
+            //TODO
+            // Find ud af hvordan user_id'et ikke bliver kaldt. Måske Anderses eller Yusafs eksempel kan være til hjælp.
+
+
+
+            val user_id = auth.currentUser
             binding.buttonAddNewFriend.setOnClickListener {
                 val name = nameEditText.text.toString().trim()
                 val today = Calendar.getInstance()
@@ -78,11 +89,10 @@ class AddFragment : Fragment() {
                 ) 1 else 0
 
 
-
+                val userEmail = PersonViewmodel.getUserEmail()
                 val birthdate = selectedDate?.get(Calendar.DAY_OF_MONTH) ?: 0
                 val birthmonth = selectedDate?.get(Calendar.MONTH) ?: 0
                 val birthyear = selectedDate.get(Calendar.YEAR)
-                val userEmail = PersonViewmodel.getUserEmail()
                 val newPerson = Person(name, age, birthdate, birthmonth, birthyear, userEmail)
                 PersonViewmodel.add(newPerson)
                 findNavController().navigate(R.id.action_addFragment_to_FirstFragment)
